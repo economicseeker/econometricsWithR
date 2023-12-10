@@ -59,3 +59,34 @@ plot(x = k,
      ylab="Probability",
      main = "Probability Distribution Function",
      pch=20) 
+
+# compute cumulative probabilities
+prob <- pbinom(q = k, 
+               size = 10, 
+               prob = 0.5)
+
+# plot the cumulative probabilities
+plot(x = k, 
+     y = prob,
+     ylab="Probability",
+     main = "Cumulative Distribution Function",
+     pch=20) 
+
+# compute mean of natural numbers from 1 to 6
+mean(1:6)
+
+# set seed for reproducibility
+set.seed(1)
+
+# rolling a dice three times in a row
+sample(1:6, 3, replace = T)
+
+# set seed for reproducibility
+set.seed(1)
+
+# compute the sample mean of 10000 dice rolls
+mean(sample(1:6, 
+            10000, 
+            replace = T))
+
+var(1:6)

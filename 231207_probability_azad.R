@@ -40,4 +40,22 @@ dbinom(x = 5,
 
 # compute P(4 <= k <= 7) using 'dbinom()'
 sum(dbinom(x = 4:7, size = 10, prob = 0.5))
-#> [1] 0.7734375
+
+# compute P(4 <= k <= 7) using 'pbinom()'
+pbinom(size = 10, prob = 0.5, q = 7) - pbinom(size = 10, prob = 0.5, q = 3) 
+
+# set up vector of possible outcomes
+k <- 0:10
+k
+
+# assign the probabilities
+probability <- dbinom(x = k,
+                      size = 10, 
+                      prob = 0.5)
+
+# plot the outcomes against their probabilities
+plot(x = k, 
+     y = probability,
+     ylab="Probability",
+     main = "Probability Distribution Function",
+     pch=20) 

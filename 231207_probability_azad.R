@@ -90,3 +90,61 @@ mean(sample(1:6,
             replace = T))
 
 var(1:6)
+
+# define functions
+f <- function(x) 3 / x^4
+g <- function(x) x * f(x)
+h <- function(x) x^2 * f(x)
+
+
+# compute area under the density curve
+area <- integrate(f, 
+                  lower = 1, 
+                  upper = Inf)$value
+area 
+
+# compute E(X)
+EX <- integrate(g,
+                lower = 1,
+                upper = Inf)$value
+EX
+
+# compute Var(X)
+VarX <- integrate(h,
+                  lower = 1,
+                  upper = Inf)$value - EX^2 
+VarX
+
+# draw a plot of the N(0,1) PDF
+curve(dnorm(x),
+      xlim = c(-3.5, 3.5),
+      ylab = "Density", 
+      main = "Standard Normal Density Function") 
+
+# compute density at x=-1.96, x=0 and x=1.96
+dnorm(x = c(-1.96, 0, 1.96))
+
+# define the standard normal PDF as an R function
+f <- function(x) {
+  1/(sqrt(2 * pi)) * exp(-0.5 * x^2)
+}
+
+# define a vector of reals
+quants <- c(-1.96, 0, 1.96)
+
+# compute densities
+f(quants)
+
+# compare to the results produced by 'dnorm()'
+f(quants) == dnorm(quants)
+
+# integrate f()
+integrate(f, 
+          lower = -Inf, 
+          upper = 1.337)
+
+# compute the probability using pnorm()
+pnorm(1.337)
+
+# compute the probability
+1 - 2 * (pnorm(-1.96)) 

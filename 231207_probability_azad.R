@@ -148,3 +148,13 @@ pnorm(1.337)
 
 # compute the probability
 1 - 2 * (pnorm(-1.96)) 
+
+# rolling a dice three times in a row
+sample(1:49, size = 6)
+
+
+# define the standard normal PDF as an R function
+f <- function(x) {
+  x/4)*exp(-x^2/8)
+}
+
